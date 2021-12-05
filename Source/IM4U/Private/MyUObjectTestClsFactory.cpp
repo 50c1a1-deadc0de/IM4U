@@ -1768,11 +1768,12 @@ UStaticMesh* UMyUObjectTestClsFactory::CreateStaticMesh(
 
 	for (int32 MatNum = 0; MatNum < Materials.Num(); ++MatNum)
 	{
-		StaticMesh->StaticMaterials.Add(FStaticMaterial());
-		StaticMesh->StaticMaterials[MatNum].MaterialInterface = Materials[MatNum];
+		auto& StaticMeshMaterials = StaticMesh->GetStaticMaterials();
+		StaticMeshMaterials.Add(FStaticMaterial());
+		StaticMeshMaterials[MatNum].MaterialInterface = Materials[MatNum];
 	}
 
-	int32 NumSections = StaticMesh->StaticMaterials.Num();
+	int32 NumSections = StaticMesh->GetStaticMaterials().Num();
 
 	// Set up the SectionInfoMap to enable collision
 	for (int32 SectionIdx = 0; SectionIdx < NumSections; ++SectionIdx)
