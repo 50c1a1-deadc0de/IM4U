@@ -6,7 +6,7 @@
 #include "VmdImporter.h"
 
 #include "CoreMinimal.h"
-#include "SkelImport.h"
+#include "ImportUtils/SkelImport.h"
 #include "AnimationUtils.h"
 #include "ObjectTools.h"
 #include "AssetRegistryModule.h"

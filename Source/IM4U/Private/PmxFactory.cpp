@@ -19,7 +19,7 @@
 #include "Engine.h"
 #include "Editor.h"
 #include "TextureLayout.h"
-#include "SkelImport.h"
+#include "ImportUtils/SkelImport.h"
 //#include "FbxImporter.h"
 #include "AnimEncoding.h"
 #include "SSkeletonWidget.h"
