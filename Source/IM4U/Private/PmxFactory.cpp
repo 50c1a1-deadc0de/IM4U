@@ -20,6 +20,7 @@
 #include "Editor.h"
 #include "TextureLayout.h"
 #include "ImportUtils/SkelImport.h"
+#include "ImportUtils/SkeletalMeshImportUtils.h"
 //#include "FbxImporter.h"
 #include "AnimEncoding.h"
 #include "SSkeletonWidget.h"
@@ -1173,11 +1174,11 @@ USkeletalMesh* UPmxFactory::ImportSkeletalMesh(
 	}
 
 	// process materials from import data
-	SkeletalMeshHelper::ProcessImportMeshMaterials(SkeletalMesh->Materials, *SkelMeshImportDataPtr);
+	SkeletalMeshImportUtils::ProcessImportMeshMaterials(SkeletalMesh->Materials, *SkelMeshImportDataPtr);
 
 	// process reference skeleton from import data
 	int32 SkeletalDepth = 0;
-	if (!SkeletalMeshHelper::ProcessImportMeshSkeleton(SkeletalMesh->Skeleton, SkeletalMesh->RefSkeleton, SkeletalDepth, *SkelMeshImportDataPtr))
+	if (!SkeletalMeshImportUtils::ProcessImportMeshSkeleton(SkeletalMesh->Skeleton, SkeletalMesh->RefSkeleton, SkeletalDepth, *SkelMeshImportDataPtr))
 	{
 		SkeletalMesh->ClearFlags(RF_Standalone);
 		SkeletalMesh->Rename(NULL, GetTransientPackage());
