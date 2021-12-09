@@ -1762,7 +1762,7 @@ UStaticMesh* UMyUObjectTestClsFactory::CreateStaticMesh(
 	ImportSubsystem->OnAssetPostImport.Broadcast(this, StaticMesh);
 
 	// Add one LOD for the base mesh
-	FStaticMeshSourceModel* SrcModel = new(StaticMesh->GetSourceModels()) FStaticMeshSourceModel();
+	FStaticMeshSourceModel* SrcModel = new(&StaticMesh->GetSourceModel(0)) FStaticMeshSourceModel();
 	SrcModel->RawMeshBulkData->SaveRawMesh(RawMesh);
 	//StaticMesh->Materials = Materials;
 
